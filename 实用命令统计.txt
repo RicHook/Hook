@@ -1,0 +1,120 @@
+lsb_release -a
+查看系统版本
+
+netstat -lnp | grep rsync
+查看rsync的端口号
+
+rpm -ql  rsync
+查看rsync软件安装目录
+
+$ ssh-copy-id -i ~/.ssh/id_dsa.pub user@remote_ip
+公钥互传命令
+
+zabbix_get  -s 192.168.20.32 -k vfs.file.cksum[/etc/passwd]
+zabbix检测监控项
+
+ awk '$1~"Apr"&&$2~"8"&&$3~"^10:5.*" {print $0}' /var/log/messages |grep Error
+简单的AWK
+
+
+# mysql_secure_installation
+修改mysql root 密码
+
+ifconfig eth0 |awk -F '[ :]+' 'NR==2 {print $4}'
+用awk多分隔符截取ip
+
+
+history -w ;sed -i '/kuaiwen/d'  ~/.bash_history ;history -c ;history -r 
+history |grep kuaiwen
+自动化擦屁股
+
+
+echo 3 > /proc/sys/vm/drop_caches
+清空缓存
+
+
+make distclean   
+清除上次编译信息 
+
+
+实例13：每月的4号与每周一到周三的11点重启smb 
+命令：
+0 11 4 * mon-wed /etc/init.d/smb restart
+ 
+实例14：一月一号的4点重启smb 
+命令：
+0 4 1 jan * /etc/init.d/smb restart
+实例15：每小时执行/etc/cron.hourly目录内的脚本
+命令：
+01   *   *   *   *     root run-parts /etc/cron.hourly
+说明：
+run-parts这个参数了，如果去掉这个参数的话，后面就可以写要运行的某个脚本名，而不是目录名了
+
+
+
+time echo "scale=5000; 4*a(1)" | bc -l -q
+算圆周率来测试电脑性能。
+
+netstat -n | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}'
+看状态
+
+ss -s
+省资源的命令
+
+rsync  -avtu --progress ./mysql 192.168.20.205:/data/  
+远程传输命令--progress显示进度
+
+nohup 你自己的命令 &
+关闭链接窗口后台执行命令
+
+more /etc/motd
+个性连机文字图片
+
+/usr/local/varnish/sbin/varnishdctl.sh
+重启varnish
+
+cat /etc/issue
+查看系统版本
+
+uname -a
+查看内核版本
+
+mount | column -t
+友好的显示挂在，挺有用的
+终极版本： nicemount() { (echo "DEVICE PATH TYPE FLAGS" && mount |awk '$2=$4="";1') | column -t; }
+
+du -h --max-depth=1
+显示当前所有子目录的大小
+
+history | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head
+列出你最常用的10条命令
+
+rename mgwlc mgwdlc0 mgwlc*
+批量更换文件名
+
+yum install openssh-clients -y
+如果服务器没有scp命令
+
+
+没有mysql.h解决：
+
+在编译时需要MySQL的头的文件，默认搜索找不到头文件的位置，需要建立个软连接：
+# ln -s /usr/local/mysql/include/* /usr/local/include/
+
+cat /proc/cpuinfo
+看CPU个数processor : 23（代表24个核）
+
+netstat -n | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}'
+查看TCP连接状态
+
+sysctl -w net.ipv4.tcp_timestamps=1
+更改tcp细节
+
+rsync -z 
+边传输边压缩
+
+curl http://members.3322.org/dyndns/getip
+查看出口ip
+
+ss -lti '( sport = :http )'
+查询baklog数量
