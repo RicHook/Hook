@@ -1,4 +1,4 @@
-lsb_release -a
+﻿lsb_release -a
 查看系统版本
 
 netstat -lnp | grep rsync
@@ -118,3 +118,7 @@ curl http://members.3322.org/dyndns/getip
 
 ss -lti '( sport = :http )'
 查询baklog数量
+
+
+
+
